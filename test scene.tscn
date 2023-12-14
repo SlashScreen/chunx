@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://040esf7uq0oy"]
+
+[ext_resource type="Script" path="res://addons/chunx/streamer.gd" id="1_m8kiv"]
+[ext_resource type="Script" path="res://addons/chunx/world_chunk.gd" id="2_vyou4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tmmnb"]
+
+[node name="Test" type="Node3D"]
+
+[node name="Streamer" type="Node3D" parent="."]
+script = ExtResource("1_m8kiv")
+chunk_dir = "res://chunks"
+
+[node name="(0, 0, 0)" type="Node3D" parent="Streamer"]
+script = ExtResource("2_vyou4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Streamer/(0, 0, 0)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45454, 0, 0)
+mesh = SubResource("BoxMesh_tmmnb")
+
+[node name="(1, 0, 0)" type="Node3D" parent="Streamer"]
+script = ExtResource("2_vyou4")
+chunk = Vector3i(1, 0, 0)
+
+[node name="(-1, 0, 0)" type="Node3D" parent="Streamer"]
+script = ExtResource("2_vyou4")
+chunk = Vector3i(-1, 0, 0)
