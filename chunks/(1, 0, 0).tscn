@@ -1,7 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://1gevy1nsbmd4"]
+[gd_scene load_steps=3 format=3 uid="uid://1gevy1nsbmd4"]
 
 [ext_resource type="Script" path="res://addons/chunx/world_chunk.gd" id="1_5qfvg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tmmnb"]
 
 [node name="(1, 0, 0)" type="Node3D"]
 script = ExtResource("1_5qfvg")
 chunk = Vector3i(1, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
+mesh = SubResource("BoxMesh_tmmnb")

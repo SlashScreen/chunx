@@ -133,22 +133,6 @@ func get_cells_in_radius(pt:Vector3) -> Array[Vector3i]:
 func _grab_camera() -> Camera3D:
 	# TODO: Cache
 	if Engine.is_editor_hint():
-		var temp_es = EditorScript.new()
-		var interface = temp_es.get_editor_interface()
-		var cams:Array[Camera3D] = []
-		_find_cameras(interface.get_editor_main_screen(), cams, interface.get_edited_scene_root())
-		return cams[0]
+		return EditorInterface.get_editor_viewport_3d(0).get_camera_3d()
 	else:
 		return get_viewport().get_camera_3d()
-
-
-func _find_cameras(n:Node, cams:Array[Camera3D], exclude:Node) -> void:
-	if n == exclude:
-		return
-	
-	if n is Camera3D:
-		cams.append(n)
-		return
-	
-	for c in n.get_children():
-		_find_cameras(c, cams, exclude)
