@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://040esf7uq0oy"]
+[gd_scene load_steps=6 format=3 uid="uid://040esf7uq0oy"]
 
 [ext_resource type="Script" path="res://addons/chunx/streamer.gd" id="1_m8kiv"]
-[ext_resource type="Script" path="res://addons/chunx/world_chunk.gd" id="2_vyou4"]
+[ext_resource type="PackedScene" uid="uid://chlykd3ynfie8" path="res://chunks/(-1, 0, 0).tscn" id="2_ml8ro"]
+[ext_resource type="PackedScene" uid="uid://dwkkubj66xmh7" path="res://chunks/(0, 0, 0).tscn" id="3_6ipta"]
+[ext_resource type="PackedScene" uid="uid://1gevy1nsbmd4" path="res://chunks/(1, 0, 0).tscn" id="4_vf6f0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tmmnb"]
 
@@ -11,17 +13,16 @@
 script = ExtResource("1_m8kiv")
 chunk_dir = "res://chunks"
 
-[node name="(0, 0, 0)" type="Node3D" parent="Streamer"]
-script = ExtResource("2_vyou4")
+[node name="(-1, 0, 0)" parent="Streamer" instance=ExtResource("2_ml8ro")]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Streamer/(0, 0, 0)"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45454, 0, 0)
+[node name="(0, 0, 0)" parent="Streamer" instance=ExtResource("3_6ipta")]
+
+[node name="(1, 0, 0)" parent="Streamer" instance=ExtResource("4_vf6f0")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Streamer/(1, 0, 0)"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 mesh = SubResource("BoxMesh_tmmnb")
 
-[node name="(1, 0, 0)" type="Node3D" parent="Streamer"]
-script = ExtResource("2_vyou4")
-chunk = Vector3i(1, 0, 0)
-
-[node name="(-1, 0, 0)" type="Node3D" parent="Streamer"]
-script = ExtResource("2_vyou4")
-chunk = Vector3i(-1, 0, 0)
+[editable path="Streamer/(-1, 0, 0)"]
+[editable path="Streamer/(0, 0, 0)"]
+[editable path="Streamer/(1, 0, 0)"]

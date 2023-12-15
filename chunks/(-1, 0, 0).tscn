@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://chlykd3ynfie8"]
+
+[ext_resource type="Script" path="res://addons/chunx/world_chunk.gd" id="1_e2dwx"]
+
+[node name="(-1, 0, 0)" type="Node3D"]
+script = ExtResource("1_e2dwx")
+chunk = Vector3i(-1, 0, 0)

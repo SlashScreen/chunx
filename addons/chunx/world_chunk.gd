@@ -10,11 +10,6 @@ var cache:Dictionary = {}
 signal recalculate_node(n:Node)
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if not Engine.is_editor_hint():
@@ -34,17 +29,22 @@ func _process(_delta):
 
 
 func save() -> PackedScene:
+	if not Engine.is_editor_hint():
+		return null
+	
 	var ps = PackedScene.new()
 	
 	for c in get_children():
-		set_children_owner(c)
+		set_children_owner(c, self)
 	
 	ps.pack(self)
 	
+	for c in get_children():
+		set_children_owner(c, get_tree().edited_scene_root)
 	return ps
 
 
-func set_children_owner(n:Node) -> void:
-	n.owner = self
+func set_children_owner(n:Node, what:Node) -> void:
+	n.owner = what
 	for c in n.get_children():
-		set_children_owner(c)
+		set_children_owner(c, what)
