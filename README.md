@@ -1,8 +1,14 @@
-# Chunx - the Open World chunking solution for Godot 4.2
+# Chunx - the Open World chunking solution for Godot 4.2+
 
 This plugin allows for easy partitioning of *authored* game worlds into streamable chunks.
 **Please note that this is *not* for procedurally generated worlds, like Minecraft.**
 This is inspired by the WorldStreamer addon for Unity.
+
+## Why?
+
+If you're creating an open world game, eventually there will be so many objects in a particularly large scene that not only the game, but the editor as well, will slow down.
+This is where chunking comes in - Smaller objects are streamed in and out of the game as the player or editor moves around, keeping overhead to a minimum.
+Chunx is a simple plugin that does exactly this.
 
 ## Features
 
