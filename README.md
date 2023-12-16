@@ -24,7 +24,7 @@ Chunx is a simple plugin that does exactly this.
 
 ## Get started
 
-1. Install the plugin by downloading the Chunx addon into the addons folder. (A submodule will be available later).
+1. Install the plugin by downloading the Chunx addon into the addons folder, or clone the [submodule](https://github.com/SlashScreen/chunx-submodule).
 2. Enable the addon in project settings.
 3. Place a `WorldStreamer` node into your world, and configure it however you please. Chunk dimensions are in meters, Godot's standard unit. The Chunk Dir is the directory that chunks will be saved in.
 4. Place any Node3D into the tree directly beneath the `WorldStreamer`. It will be partitioned into a chunk.
