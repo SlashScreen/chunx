@@ -1,3 +1,5 @@
+# Please note that this is an alpha plugin and has not been fleshed out or extensively tested.
+
 # Chunx - the Open World chunking solution for Godot 4.2+
 
 This plugin allows for easy partitioning of *authored* game worlds into streamable chunks.
